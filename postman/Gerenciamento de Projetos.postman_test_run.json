@@ -1,0 +1,440 @@
+{
+	"id": "17b6370a-7a5a-48df-bc4f-df0b9e5ec745",
+	"name": "Gerenciamento de Projetos",
+	"timestamp": "2023-11-16T02:10:43.100Z",
+	"collection_id": "29286422-a43b4c41-6858-4bd1-b064-006ed1c9445b",
+	"folder_id": 0,
+	"environment_id": "29286422-45bc723a-9438-4256-ba82-e69aea379666",
+	"totalPass": 0,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-11-16T02:10:40.833Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "1af9cc40-166e-468c-86da-6082698a0b31",
+			"name": "Listar Projetos",
+			"url": "http://localhost:3000/api/v1/projetos",
+			"time": 30,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				30
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "fd3a4b82-c7b6-4ce4-86e1-ad5ea7db4508",
+			"name": "Projeto por Id",
+			"url": "http://localhost:3000/api/v1/projetos/1",
+			"time": 31,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				31
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "997af57a-10c2-4331-8ea6-2221924a9a01",
+			"name": "Projeto Filtro Paginação e Ordenação",
+			"url": "http://localhost:3000/api/v1/projetos?status=Pendente&_page=1&_limit=20&_sort=nome&_order=asc",
+			"time": 32,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				32
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "112c6cce-76a6-4d2c-8755-44d429f9bbf3",
+			"name": "Criar Projetos",
+			"url": "http://localhost:3000/api/v1/projetos",
+			"time": 31,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				31
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "46f8cc59-c20c-499a-9c11-f9e9f2ad6b97",
+			"name": "Atualizar Projetos",
+			"url": "http://localhost:3000/api/v1/projetos/4",
+			"time": 30,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				30
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9035f56e-9e0f-414c-a809-20dd11c73e5d",
+			"name": "Deletar Projetos",
+			"url": "http://localhost:3000/api/v1/projetos/5",
+			"time": 32,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				32
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2f73db4e-e57e-4e86-8c2e-4be9b218de3e",
+			"name": "Login",
+			"url": "http://localhost:3000/api/v1/login",
+			"time": 31,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				31
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4afacda1-b6e6-4d48-b70b-9590cc745f33",
+			"name": "Listar Tarefas",
+			"url": "http://localhost:3000/api/v1/tarefas",
+			"time": 16,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				16
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2d5b564a-5cff-46f7-84ed-fe4a3011acf4",
+			"name": "Tarefa por Id",
+			"url": "http://localhost:3000/api/v1/tarefas/1",
+			"time": 31,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				31
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c1d90d0b-ff41-4c26-a9c5-443563baad82",
+			"name": "Tarefa Filtro Paginação e Ordenação",
+			"url": "http://localhost:3000/api/v1/tarefas?status=Pendente&_page=1&_limit=20&_sort=nome&_order=asc",
+			"time": 32,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				32
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b199968f-ad7e-43db-b4cf-7e135a08d632",
+			"name": "Criar Tarefa",
+			"url": "http://localhost:3000/api/v1/tarefas",
+			"time": 33,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				33
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "886146ae-50a7-44a3-834a-1b3cf3f77c43",
+			"name": "Atualizar Tarefa",
+			"url": "http://localhost:3000/api/v1/tarefas/6",
+			"time": 33,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				33
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8808833a-abcb-4db6-ae2e-12c8422b795c",
+			"name": "Deletar Tarefa",
+			"url": "http://localhost:3000/api/v1/tarefas/6",
+			"time": 33,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				33
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f61f618b-f599-43dc-9f0f-04d8937649b8",
+			"name": "Listar Usuarios",
+			"url": "http://localhost:3000/api/v1/usuarios",
+			"time": 33,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				33
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a3e25fe9-8fc7-4473-8414-034f449b15aa",
+			"name": "Usuario por Id",
+			"url": "http://localhost:3000/api/v1/usuarios/1",
+			"time": 33,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				33
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "92f91942-3d02-419e-a96c-4d713092424b",
+			"name": "Usuario Filtro Paginação e Ordenação",
+			"url": "http://localhost:3000/api/v1/usuarios?admin=true&_page=1&_limit=20&_sort=nome&_order=asc",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				15
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "dacf1ed5-059d-46dc-a374-06d0dcfac800",
+			"name": "Criar Usuario",
+			"url": "http://localhost:3000/api/v1/usuarios",
+			"time": 31,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				31
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "5bcaedc4-5a59-4733-9018-f019037fecc6",
+			"name": "Atualizar Usuario",
+			"url": "http://localhost:3000/api/v1/usuarios/4",
+			"time": 16,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				16
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4a9f5edb-baeb-46d4-8153-6f749fe5c8b9",
+			"name": "Deletar Usuario",
+			"url": "http://localhost:3000/api/v1/usuarios/4",
+			"time": 33,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				33
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 556,
+	"collection": {
+		"requests": [
+			{
+				"id": "1af9cc40-166e-468c-86da-6082698a0b31",
+				"method": "GET"
+			},
+			{
+				"id": "fd3a4b82-c7b6-4ce4-86e1-ad5ea7db4508",
+				"method": "GET"
+			},
+			{
+				"id": "997af57a-10c2-4331-8ea6-2221924a9a01",
+				"method": "GET"
+			},
+			{
+				"id": "112c6cce-76a6-4d2c-8755-44d429f9bbf3",
+				"method": "POST"
+			},
+			{
+				"id": "46f8cc59-c20c-499a-9c11-f9e9f2ad6b97",
+				"method": "PUT"
+			},
+			{
+				"id": "9035f56e-9e0f-414c-a809-20dd11c73e5d",
+				"method": "DELETE"
+			},
+			{
+				"id": "2f73db4e-e57e-4e86-8c2e-4be9b218de3e",
+				"method": "POST"
+			},
+			{
+				"id": "4afacda1-b6e6-4d48-b70b-9590cc745f33",
+				"method": "GET"
+			},
+			{
+				"id": "2d5b564a-5cff-46f7-84ed-fe4a3011acf4",
+				"method": "GET"
+			},
+			{
+				"id": "c1d90d0b-ff41-4c26-a9c5-443563baad82",
+				"method": "GET"
+			},
+			{
+				"id": "b199968f-ad7e-43db-b4cf-7e135a08d632",
+				"method": "POST"
+			},
+			{
+				"id": "886146ae-50a7-44a3-834a-1b3cf3f77c43",
+				"method": "PUT"
+			},
+			{
+				"id": "8808833a-abcb-4db6-ae2e-12c8422b795c",
+				"method": "DELETE"
+			},
+			{
+				"id": "f61f618b-f599-43dc-9f0f-04d8937649b8",
+				"method": "GET"
+			},
+			{
+				"id": "a3e25fe9-8fc7-4473-8414-034f449b15aa",
+				"method": "GET"
+			},
+			{
+				"id": "92f91942-3d02-419e-a96c-4d713092424b",
+				"method": "GET"
+			},
+			{
+				"id": "dacf1ed5-059d-46dc-a374-06d0dcfac800",
+				"method": "POST"
+			},
+			{
+				"id": "5bcaedc4-5a59-4733-9018-f019037fecc6",
+				"method": "PUT"
+			},
+			{
+				"id": "4a9f5edb-baeb-46d4-8153-6f749fe5c8b9",
+				"method": "DELETE"
+			}
+		]
+	}
+}

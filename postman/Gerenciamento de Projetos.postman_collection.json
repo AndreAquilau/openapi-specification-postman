@@ -1,0 +1,2195 @@
+{
+	"info": {
+		"_postman_id": "a43b4c41-6858-4bd1-b064-006ed1c9445b",
+		"name": "Gerenciamento de Projetos",
+		"description": "<img src=\"https://content.pstmn.io/2ac06316-1eba-4f10-a00c-ed8e378dca60/aW1hZ2UucG5n\" alt=\"\" height=\"136\" width=\"504\">\n\nEsta documentação descreve a API do Sistema de Gerenciamento de Projetos, que permite aos usuários gerenciar tarefas, projetos e usuários. A API foi implementada com um servidor mock.\n\nRecursos:  \nA API do Sistema de Gerenciamento de Tarefas fornece os seguintes recursos:\n\n1. Projetos:\n    \n\n- Listar todas as projetos\n- Buscar projeto por Id\n- Buscar Projeto usando paginação e ordenação\n- Criar uma nova projeto\n- Atualizar uma projeto existente\n- Excluir uma tarefa\n    \n\n2\\. Tarefas:\n\n- Listar todas as tarefas\n- Buscar tarefa por Id\n- Buscar tarefas usando paginação e ordenação\n- Criar uma nova tarefa\n- Atualizar uma tarefa existente\n- Excluir uma tarefa\n    \n\n3\\. Usuários:\n\n- Listar todas as usuários\n- Buscar usuário por Id\n- Buscar usuários usado Paginação e Ordenação\n- Criar um novo usuário\n- Atualizar um usuário existente\n- Excluir um usuário\n    \n\n4\\. Autenticação:\n\n- Login",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29286422"
+	},
+	"item": [
+		{
+			"name": "Projetos",
+			"item": [
+				{
+					"name": "Listar Projetos",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{TOKEN}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_URL}}/api/v1/projetos",
+						"description": "\nEste endpoint realiza uma solicitação GET para obter uma lista de projetos. \n\n### Requisição\n\nO endpoint aceita apenas uma requisição GET e não requer nenhum parâmetro adicional.\n\nExemplo de requisição:\n\n```\nGET {{BASE_URL}}/api/v1/projetos\n```\n\n### Resposta\n\nA resposta para esta solicitação será uma lista de projetos. Cada projeto será representado por um objeto JSON com os seguintes campos:\n\n- `id` (number): O ID do projeto.\n- `nome` (string): O nome do projeto.\n- `dataInicio` (string): A data de início do projeto.\n- `dataFim` (string): A data de término do projeto.\n- `status` (string): O status atual do projeto.\n- `responsavel` (string): O responsável pelo projeto.\n\nExemplo de resposta:\n\n```\n[\n  {\n    \"id\": 0,\n    \"nome\": \"\",\n    \"dataInicio\": \"\",\n    \"dataFim\": \"\",\n    \"status\": \"\",\n    \"responsavel\": \"\"\n  }\n]\n```\n\nEsta resposta contém um projeto de exemplo com valores vazios para todos os campos.\n\n"
+					},
+					"response": [
+						{
+							"name": "Listar Projetos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/api/v1/projetos"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "688"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b0-zU/aCOGH1az4twAf8skOb2CqvuY\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 21:38:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"nome\": \"Projeto Migração\",\n        \"dataInicio\": \"2023-11-01\",\n        \"dataFim\": \"2024-02-01\",\n        \"status\": \"Em andamento\",\n        \"responsavel\": \"João Silva\"\n    },\n    {\n        \"id\": 2,\n        \"nome\": \"Projeto Refatoração\",\n        \"dataInicio\": \"2023-10-01\",\n        \"dataFim\": \"2024-01-30\",\n        \"status\": \"Pendente\",\n        \"responsavel\": \"Maria Souza\"\n    },\n    {\n        \"descricao\": \"Realizar pesquisa de mercado\",\n        \"projeto_id\": 2,\n        \"status\": \"Concluída\",\n        \"responsavel\": \"Maria Souza\",\n        \"id\": 4\n    },\n    {\n        \"nome\": \"Projeto Services\",\n        \"dataInicio\": \"2023-10-01\",\n        \"dataFim\": \"2024-01-30\",\n        \"status\": \"Pendente\",\n        \"responsavel\": \"Maria Souza\",\n        \"id\": 6\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Projeto por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/projetos/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"projetos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "\nEste endpoint realiza uma solicitação GET para obter informações sobre um projeto específico com base no seu ID.\n\n### Requisição\n\n`GET {{BASE_URL}}/api/v1/projetos/:id`\n\nParâmetros de URL:\n- `id` (obrigatório): O ID do projeto que se deseja obter informações.\n\nExemplo de solicitação:\n```\nGET {{BASE_URL}}/api/v1/projetos/123\n```\n\n### Resposta\n\nExemplo de resposta bem-sucedida:\n```\n{\n  \"id\": 123,\n  \"nome\": \"Nome do Projeto\",\n  \"dataInicio\": \"2022-01-01\",\n  \"dataFim\": \"2022-12-31\",\n  \"status\": \"Em andamento\",\n  \"responsavel\": \"Nome do Responsável\"\n}\n```\n\nA resposta contém os seguintes campos:\n- `id`: O ID do projeto.\n- `nome`: O nome do projeto.\n- `dataInicio`: A data de início do projeto.\n- `dataFim`: A data de término do projeto.\n- `status`: O status atual do projeto.\n- `responsavel`: O nome do responsável pelo projeto.\n\nCaso o projeto não seja encontrado, a resposta retornará um objeto vazio.\n\n"
+					},
+					"response": [
+						{
+							"name": "Projeto por Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/api/v1/projetos/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "162"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a2-ofBHFgbvA6wteJKYt6lPTbfnqyQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 20:40:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"nome\": \"Projeto Migração\",\n    \"dataInicio\": \"2023-11-01\",\n    \"dataFim\": \"2024-02-01\",\n    \"status\": \"Em andamento\",\n    \"responsavel\": \"João Silva\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Projeto Filtro Paginação e Ordenação",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/projetos?status=Pendente&_page=1&_limit=20&_sort=nome&_order=asc",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"projetos"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "Pendente"
+								},
+								{
+									"key": "_page",
+									"value": "1"
+								},
+								{
+									"key": "_limit",
+									"value": "20"
+								},
+								{
+									"key": "_sort",
+									"value": "nome"
+								},
+								{
+									"key": "_order",
+									"value": "asc"
+								}
+							]
+						},
+						"description": "\nEste endpoint realiza uma solicitação GET para obter uma lista de projetos com base em determinados parâmetros de consulta.\n\n### Requisição\n\n`GET {{BASE_URL}}/api/v1/projetos?status=Pendente&_page=1&_limit=20&_sort=nome&_order=asc`\n\nParâmetros de consulta:\n- `status`: (opcional) Filtra os projetos pelo status especificado.\n- `_page`: (opcional) Especifica o número da página para paginar os resultados.\n- `_limit`: (opcional) Especifica o número máximo de projetos retornados por página.\n- `_sort`: (opcional) Ordena os projetos com base no campo especificado.\n- `_order`: (opcional) Especifica a ordem de classificação dos projetos (ascendente ou descendente).\n\n### Resposta\n\nExemplo de resposta para esta solicitação:\n\n```json\n[\n  {\n    \"id\": 0,\n    \"nome\": \"\",\n    \"dataInicio\": \"\",\n    \"dataFim\": \"\",\n    \"status\": \"\",\n    \"responsavel\": \"\"\n  }\n]\n```\n\nA resposta é uma matriz de objetos JSON, onde cada objeto representa um projeto. Cada projeto possui as seguintes propriedades:\n- `id`: O ID do projeto.\n- `nome`: O nome do projeto.\n- `dataInicio`: A data de início do projeto.\n- `dataFim`: A data de término do projeto.\n- `status`: O status do projeto.\n- `responsavel`: O responsável pelo projeto.\n\nEsta solicitação retorna uma lista de projetos com base nos parâmetros de consulta fornecidos. Os projetos são ordenados pelo nome em ordem ascendente e limitados a 20 projetos por página. A página retornada é a primeira página.\n"
+					},
+					"response": [
+						{
+							"name": "Projeto Filtro Paginação e Ordenação",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/projetos?status=Pendente&_page=1&_limit=20&_sort=nome&_order=asc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"projetos"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "Pendente"
+										},
+										{
+											"key": "_page",
+											"value": "1"
+										},
+										{
+											"key": "_limit",
+											"value": "20"
+										},
+										{
+											"key": "_sort",
+											"value": "nome"
+										},
+										{
+											"key": "_order",
+											"value": "asc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "X-Total-Count",
+									"value": "3"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "X-Total-Count, Link"
+								},
+								{
+									"key": "Link",
+									"value": ""
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "533"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"215-qNo6uymJpAGBJh20Dkgl9A6Y3Vg\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 20:40:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 2,\n        \"nome\": \"Projeto Refatoração\",\n        \"dataInicio\": \"2023-10-01\",\n        \"dataFim\": \"2024-01-30\",\n        \"status\": \"Pendente\",\n        \"responsavel\": \"Maria Souza\"\n    },\n    {\n        \"nome\": \"Projeto Teste - QA\",\n        \"dataInicio\": \"2023-10-01\",\n        \"dataFim\": \"2024-01-30\",\n        \"status\": \"Pendente\",\n        \"responsavel\": \"Maria Souza\",\n        \"id\": 4\n    },\n    {\n        \"nome\": \"Projeto Teste - QA\",\n        \"dataInicio\": \"2023-10-01\",\n        \"dataFim\": \"2024-01-30\",\n        \"status\": \"Pendente\",\n        \"responsavel\": \"Maria Souza\",\n        \"id\": 5\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Criar Projetos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Projeto Services\",\r\n    \"dataInicio\": \"2023-10-01\",\r\n    \"dataFim\": \"2024-01-30\",\r\n    \"status\": \"Pendente\",\r\n    \"responsavel\": \"Maria Souza\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/api/v1/projetos",
+						"description": "\nEste endpoint realiza uma solicitação HTTP POST para adicionar um novo projeto no sistema.\n\n### Requisição\n\nA requisição deve ser enviada para `{{BASE_URL}}/api/v1/projetos`.\n\n#### Parâmetros da Requisição\n\nOs parâmetros da requisição devem ser enviados no corpo da requisição no formato JSON. Os parâmetros obrigatórios são:\n\n- `nome`: O nome do projeto.\n- `dataInicio`: A data de início do projeto.\n- `dataFim`: A data de término do projeto.\n- `status`: O status do projeto.\n- `responsavel`: O responsável pelo projeto.\n\nExemplo de corpo de requisição:\n\n```json\n{\n  \"nome\": \"Nome do Projeto\",\n  \"dataInicio\": \"2022-01-01\",\n  \"dataFim\": \"2022-12-31\",\n  \"status\": \"Em Andamento\",\n  \"responsavel\": \"Nome do Responsável\"\n}\n```\n\n### Resposta\n\nExemplos de respostas para esta solicitação são:\n\n- Sucesso (código 200):\n\n```json\n{\n  \"nome\": \"Nome do Projeto\",\n  \"dataInicio\": \"2022-01-01\",\n  \"dataFim\": \"2022-12-31\",\n  \"status\": \"Em Andamento\",\n  \"responsavel\": \"Nome do Responsável\",\n  \"id\": 12345\n}\n```\n\n- Erro de validação (código 400):\n\n```json\n{\n  \"errors\": [\n    \"O nome do projeto é obrigatório\",\n    \"A data de início do projeto é obrigatória\",\n    \"A data de término do projeto é obrigatória\",\n    \"O status do projeto é obrigatório\",\n    \"O responsável pelo projeto é obrigatório\"\n  ]\n}\n```\n\n- Erro interno do servidor (código 500):\n\n```json\n{\n  \"message\": \"Ocorreu um erro interno no servidor\"\n}\n```\n\n"
+					},
+					"response": [
+						{
+							"name": "Criar Projetos",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Projeto Services\",\r\n    \"dataInicio\": \"2023-10-01\",\r\n    \"dataFim\": \"2024-01-30\",\r\n    \"status\": \"Pendente\",\r\n    \"responsavel\": \"Maria Souza\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/api/v1/projetos"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, X-HTTP-Method-Override, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Location"
+								},
+								{
+									"key": "Location",
+									"value": "http://localhost:3000/projetos/6"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "156"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9c-58j/E274ceYp/45rjqBvqN8ZuxA\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 20:40:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"nome\": \"Projeto Services\",\n    \"dataInicio\": \"2023-10-01\",\n    \"dataFim\": \"2024-01-30\",\n    \"status\": \"Pendente\",\n    \"responsavel\": \"Maria Souza\",\n    \"id\": 6\n}"
+						}
+					]
+				},
+				{
+					"name": "Atualizar Projetos",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricao\": \"Realizar pesquisa de mercado\",\r\n    \"projeto_id\": 2,\r\n    \"status\": \"Concluída\",\r\n    \"responsavel\": \"Maria Souza\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/projetos/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"projetos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						},
+						"description": "\nEste endpoint é usado para atualizar um projeto existente com base no ID fornecido. O método HTTP utilizado é PUT e a URL para acessar este endpoint é `{{BASE_URL}}/api/v1/projetos/:id`, onde `:id` é o ID do projeto que se deseja atualizar.\n\n### Parâmetros de Requisição\nO corpo da requisição deve conter os seguintes parâmetros:\n\n- `descricao` (string): A descrição do projeto.\n- `projeto_id` (integer): O ID do projeto.\n- `status` (string): O status do projeto.\n- `responsavel` (string): O responsável pelo projeto.\n\n### Exemplo de Requisição\n```\nPUT {{BASE_URL}}/api/v1/projetos/123\nContent-Type: application/json\n\n{\n  \"descricao\": \"Nova descrição do projeto\",\n  \"projeto_id\": 456,\n  \"status\": \"Em andamento\",\n  \"responsavel\": \"João\"\n}\n```\n\n### Resposta\nA resposta para esta requisição será um objeto JSON com os seguintes campos:\n\n- `descricao` (string): A descrição atualizada do projeto.\n- `projeto_id` (integer): O ID do projeto.\n- `status` (string): O status atualizado do projeto.\n- `responsavel` (string): O responsável atualizado pelo projeto.\n- `id` (integer): O ID do projeto atualizado.\n\nExemplo de resposta:\n```\n{\n  \"descricao\": \"Nova descrição do projeto\",\n  \"projeto_id\": 456,\n  \"status\": \"Em andamento\",\n  \"responsavel\": \"João\",\n  \"id\": 123\n}\n```\n\n"
+					},
+					"response": [
+						{
+							"name": "Atualizar Projetos",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"descricao\": \"Realizar pesquisa de mercado\",\r\n    \"projeto_id\": 2,\r\n    \"status\": \"Concluída\",\r\n    \"responsavel\": \"Maria Souza\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/api/v1/projetos/4"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "137"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"89-+beqDz3zOsLRp+fJdOiU5kVgTx0\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 20:42:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"descricao\": \"Realizar pesquisa de mercado\",\n    \"projeto_id\": 2,\n    \"status\": \"Concluída\",\n    \"responsavel\": \"Maria Souza\",\n    \"id\": 4\n}"
+						}
+					]
+				},
+				{
+					"name": "Deletar Projetos",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/projetos/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"projetos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						},
+						"description": "\nEste endpoint é usado para excluir um projeto específico com base no seu ID.\n\n### Requisição\n\n- Método: DELETE\n- URL: `{{BASE_URL}}/api/v1/projetos/:id`\n\n#### Parâmetros de Path\n\n- `id` (obrigatório): O ID do projeto a ser excluído.\n\n### Resposta\n\nExemplos de respostas para esta requisição:\n\n- Status: 200 OK\n  Corpo:\n  ```\n  {}\n  ```\n\n### Exemplo de uso\n\nRequisição:\n```\nDELETE {{BASE_URL}}/api/v1/projetos/123\n```\n\nResposta:\n```\nHTTP/1.1 200 OK\nContent-Type: application/json\n\n{}\n```\n\n"
+					},
+					"response": [
+						{
+							"name": "Deletar Projetos",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:3000/api/v1/projetos/5"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-vyGp6PvFo4RvsFtPoIWeCReyIC8\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 20:42:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var token = pm.response.json().token;\r",
+									"\r",
+									"pm.collectionVariables.set(\"TOKEN\", \"Bearer \" + token);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"joao.silva@example.com\",\r\n    \"senha\": \"123\"\r\n}"
+						},
+						"url": "{{BASE_URL}}/api/v1/login",
+						"description": "\nEste endpoint é usado para fazer login na aplicação. Ele envia uma requisição HTTP POST para a URL `{{BASE_URL}}/api/v1/login`. O corpo da requisição deve conter as informações de login do usuário.\n\n### Requisição\n\nO endpoint requer os seguintes parâmetros na requisição:\n\n- `username` (string): O nome de usuário do usuário.\n- `password` (string): A senha do usuário.\n\nExemplo de corpo da requisição:\n\n```json\n{\n  \"username\": \"example_user\",\n  \"password\": \"example_password\"\n}\n```\n\n### Resposta\n\nExemplo de resposta bem-sucedida:\n\n```json\n{\n  \"token\": \"example_token\"\n}\n```\n\nA resposta contém o token de autenticação que pode ser usado para fazer outras requisições autenticadas na aplicação.\n\nEm caso de falha na autenticação, a resposta terá um código de status HTTP 401 Unauthorized e uma mensagem de erro explicando o motivo da falha.\n\n"
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"joao.silva@example.com\",\r\n    \"senha\": \"123\"\r\n}"
+								},
+								"url": "http://localhost:3000/api/v1/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "132"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"84-zaOqjfrTY4dMMI8w+Y2lCABOh3s\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 20:53:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiYWRtaW4iOmZhbHNlfQ.OwtyMXXe2VeZjiPYAWtBq3x3jM3lIWgcJeonyGC7g7E\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Tarefas",
+			"item": [
+				{
+					"name": "Listar Tarefas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_URL}}/api/v1/tarefas",
+						"description": "\nEste endpoint realiza uma solicitação HTTP GET para {{BASE_URL}}/api/v1/tarefas. Ele é usado para obter uma lista de tarefas.\n\n### Parâmetros da Solicitação\nNenhum parâmetro é necessário para esta solicitação.\n\n### Resposta\nA resposta para esta solicitação será uma lista de objetos JSON, onde cada objeto representa uma tarefa. Cada objeto terá as seguintes propriedades:\n\n- `id` (integer): O ID da tarefa.\n- `descricao` (string): A descrição da tarefa.\n- `projeto_id` (integer): O ID do projeto ao qual a tarefa está associada.\n- `status` (string): O status atual da tarefa.\n- `responsavel` (string): O responsável pela tarefa.\n\nExemplo de resposta:\n\n```json\n[\n  {\n    \"id\": 0,\n    \"descricao\": \"\",\n    \"projeto_id\": 0,\n    \"status\": \"\",\n    \"responsavel\": \"\"\n  }\n]\n```\n\nEsta resposta mostra uma tarefa de exemplo com valores padrão para cada propriedade.\n\nPor favor, note que os valores reais para as propriedades podem variar dependendo do sistema e dos dados armazenados nele.\n\n"
+					},
+					"response": [
+						{
+							"name": "Listar Tarefas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/api/v1/tarefas"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "732"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2dc-uLBeWhZYgsdKpBXXNt4QLk0tpXA\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 20:43:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"descricao\": \"Realizar análise de impacto\",\n        \"projeto_id\": 1,\n        \"status\": \"Concluída\",\n        \"responsavel\": \"João Silva\"\n    },\n    {\n        \"id\": 2,\n        \"descricao\": \"Desenvolver novo componente\",\n        \"projeto_id\": 1,\n        \"status\": \"Em andamento\",\n        \"responsavel\": \"Pedro Santos\"\n    },\n    {\n        \"id\": 3,\n        \"descricao\": \"Testar funcionalidades\",\n        \"projeto_id\": 1,\n        \"status\": \"Pendente\",\n        \"responsavel\": \"\"\n    },\n    {\n        \"id\": 4,\n        \"descricao\": \"Realizar pesquisa de mercado\",\n        \"projeto_id\": 2,\n        \"status\": \"Em andamento\",\n        \"responsavel\": \"Maria Souza\"\n    },\n    {\n        \"id\": 5,\n        \"descricao\": \"Documentar resultados\",\n        \"projeto_id\": 2,\n        \"status\": \"Pendente\",\n        \"responsavel\": \"\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Tarefa por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/tarefas/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tarefas",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "\nEste endpoint retorna os detalhes de uma tarefa específica com base no ID fornecido na URL.\n\n### Requisição\n`GET /api/v1/tarefas/:id`\n\n### Parâmetros de URL\n- `id` (obrigatório): O ID da tarefa que se deseja obter detalhes.\n\n### Resposta\nA resposta para esta requisição será um objeto JSON contendo os detalhes da tarefa encontrada. Aqui está um exemplo de resposta:\n\n```json\n{\n  \"id\": 0,\n  \"descricao\": \"\",\n  \"projeto_id\": 0,\n  \"status\": \"\",\n  \"responsavel\": \"\"\n}\n```\n\nA resposta contém as seguintes propriedades:\n- `id`: O ID da tarefa.\n- `descricao`: A descrição da tarefa.\n- `projeto_id`: O ID do projeto ao qual a tarefa está associada.\n- `status`: O status atual da tarefa.\n- `responsavel`: O responsável pela tarefa.\n\nEsta é uma documentação em pt-br.\n"
+					},
+					"response": [
+						{
+							"name": "Tarefa por Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/api/v1/tarefas/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "137"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"89-n11ucagkfV6xyZ2GVtWZA3K8MuI\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 20:44:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"descricao\": \"Realizar análise de impacto\",\n    \"projeto_id\": 1,\n    \"status\": \"Concluída\",\n    \"responsavel\": \"João Silva\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Tarefa Filtro Paginação e Ordenação",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/tarefas?status=Pendente&_page=1&_limit=20&_sort=nome&_order=asc",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tarefas"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "Pendente"
+								},
+								{
+									"key": "_page",
+									"value": "1"
+								},
+								{
+									"key": "_limit",
+									"value": "20"
+								},
+								{
+									"key": "_sort",
+									"value": "nome"
+								},
+								{
+									"key": "_order",
+									"value": "asc"
+								}
+							]
+						},
+						"description": "\nEste endpoint realiza uma solicitação HTTP GET para buscar tarefas com base em determinados parâmetros. A URL da solicitação é `{{BASE_URL}}/api/v1/tarefas`.\n\n### Parâmetros da Solicitação\n- `status` (opcional): Filtra as tarefas com base no status. Os valores possíveis são \"Pendente\", \"Em andamento\" e \"Concluída\".\n- `_page` (opcional): Especifica a página de resultados a ser retornada. O valor padrão é 1.\n- `_limit` (opcional): Especifica o número máximo de resultados por página. O valor padrão é 20.\n- `_sort` (opcional): Especifica o campo pelo qual os resultados devem ser ordenados. O valor padrão é \"nome\".\n- `_order` (opcional): Especifica a ordem de classificação dos resultados. Os valores possíveis são \"asc\" (ascendente) e \"desc\" (descendente). O valor padrão é \"asc\".\n\nExemplo de solicitação:\n```\nGET {{BASE_URL}}/api/v1/tarefas?status=Pendente&_page=1&_limit=20&_sort=nome&_order=asc\n```\n\n### Exemplo de Resposta\nA resposta para esta solicitação será uma matriz de objetos JSON contendo as seguintes propriedades:\n- `id`: O ID da tarefa.\n- `descricao`: A descrição da tarefa.\n- `projeto_id`: O ID do projeto ao qual a tarefa está associada.\n- `status`: O status da tarefa.\n- `responsavel`: O responsável pela tarefa.\n\nExemplo de resposta:\n```\n[\n  {\n    \"id\": 0,\n    \"descricao\": \"\",\n    \"projeto_id\": 0,\n    \"status\": \"\",\n    \"responsavel\": \"\"\n  }\n]\n```\n\nAdicione a documentação em pt-br.\n"
+					},
+					"response": [
+						{
+							"name": "Tarefa Filtro Paginação e Ordenação",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/tarefas?status=Pendente&_page=1&_limit=20&_sort=nome&_order=asc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"tarefas"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "Pendente"
+										},
+										{
+											"key": "_page",
+											"value": "1"
+										},
+										{
+											"key": "_limit",
+											"value": "20"
+										},
+										{
+											"key": "_sort",
+											"value": "nome"
+										},
+										{
+											"key": "_order",
+											"value": "asc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "X-Total-Count",
+									"value": "2"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "X-Total-Count, Link"
+								},
+								{
+									"key": "Link",
+									"value": ""
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "269"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10d-7Ulmeh/nz57uS6mj11yvXdB6aYY\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 20:44:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3,\n        \"descricao\": \"Testar funcionalidades\",\n        \"projeto_id\": 1,\n        \"status\": \"Pendente\",\n        \"responsavel\": \"\"\n    },\n    {\n        \"id\": 5,\n        \"descricao\": \"Documentar resultados\",\n        \"projeto_id\": 2,\n        \"status\": \"Pendente\",\n        \"responsavel\": \"\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Criar Tarefa",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Projeto Teste - QA\",\r\n    \"dataInicio\": \"2023-10-01\",\r\n    \"dataFim\": \"2024-01-30\",\r\n    \"status\": \"Pendente\",\r\n    \"responsavel\": \"Maria Souza\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/api/v1/tarefas",
+						"description": "\nEste endpoint é usado para criar uma nova tarefa no sistema. \n\n### Requisição\n\n- Método: POST\n- URL: {{BASE_URL}}/api/v1/tarefas\n\n#### Parâmetros da Requisição\n\nO corpo da requisição deve conter os seguintes parâmetros:\n\n- `nome` (string, obrigatório): O nome da tarefa.\n- `dataInicio` (string, obrigatório): A data de início da tarefa no formato \"YYYY-MM-DD\".\n- `dataFim` (string, obrigatório): A data de término da tarefa no formato \"YYYY-MM-DD\".\n- `status` (string, obrigatório): O status da tarefa. Pode ser \"pendente\", \"em andamento\" ou \"concluída\".\n- `responsavel` (string, obrigatório): O nome do responsável pela tarefa.\n\nExemplo de corpo da requisição:\n```json\n{\n  \"nome\": \"Tarefa 1\",\n  \"dataInicio\": \"2022-01-01\",\n  \"dataFim\": \"2022-01-31\",\n  \"status\": \"pendente\",\n  \"responsavel\": \"João\"\n}\n```\n\n#### Resposta\n\nExemplo de resposta de sucesso:\n```json\n{\n  \"nome\": \"Tarefa 1\",\n  \"dataInicio\": \"2022-01-01\",\n  \"dataFim\": \"2022-01-31\",\n  \"status\": \"pendente\",\n  \"responsavel\": \"João\",\n  \"id\": 123\n}\n```\n\nExemplo de resposta de erro:\n```json\n{\n  \"error\": \"Ocorreu um erro ao criar a tarefa.\"\n}\n```\n\n"
+					},
+					"response": [
+						{
+							"name": "Criar Tarefa",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Projeto Teste - QA\",\r\n    \"dataInicio\": \"2023-10-01\",\r\n    \"dataFim\": \"2024-01-30\",\r\n    \"status\": \"Pendente\",\r\n    \"responsavel\": \"Maria Souza\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/api/v1/tarefas"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, X-HTTP-Method-Override, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Location"
+								},
+								{
+									"key": "Location",
+									"value": "http://localhost:3000/tarefas/6"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "158"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9e-VmrLRBvpANDKnQQGuF4LtZ1w5jc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 20:44:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"nome\": \"Projeto Teste - QA\",\n    \"dataInicio\": \"2023-10-01\",\n    \"dataFim\": \"2024-01-30\",\n    \"status\": \"Pendente\",\n    \"responsavel\": \"Maria Souza\",\n    \"id\": 6\n}"
+						}
+					]
+				},
+				{
+					"name": "Atualizar Tarefa",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Projeto Teste - QA\",\r\n    \"dataInicio\": \"2023-10-01\",\r\n    \"dataFim\": \"2024-01-30\",\r\n    \"status\": \"Em andamento\",\r\n    \"responsavel\": \"Maria Souza\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/tarefas/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tarefas",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						},
+						"description": "Este endpoint permite atualizar uma tarefa existente no sistema.\n\n### Requisição\n\n`PUT {{BASE_URL}}/api/v1/tarefas/:id`\n\nParâmetros de URL:\n\n- `id` (obrigatório): O ID da tarefa a ser atualizada.\n    \n\nCorpo da requisição (JSON):\n\n- `nome`: O nome da tarefa.\n- `dataInicio`: A data de início da tarefa.\n- `dataFim`: A data de conclusão da tarefa.\n- `status`: O status da tarefa.\n- `responsavel`: O responsável pela tarefa.\n    \n\n### Resposta\n\nExemplos de respostas para esta requisição são:\n\nStatus 200 OK:\n\n``` json\n{\n  \"nome\": \"\",\n  \"dataInicio\": \"\",\n  \"dataFim\": \"\",\n  \"status\": \"\",\n  \"responsavel\": \"\",\n  \"id\": 0\n}\n\n ```\n\n### Erros\n\n- 404 Not Found: Caso a tarefa com o ID especificado não seja encontrada no sistema.\n- 400 Bad Request: Caso haja algum erro nos parâmetros da requisição."
+					},
+					"response": [
+						{
+							"name": "Atualizar Tarefa",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Projeto Teste - QA\",\r\n    \"dataInicio\": \"2023-10-01\",\r\n    \"dataFim\": \"2024-01-30\",\r\n    \"status\": \"Em andamento\",\r\n    \"responsavel\": \"Maria Souza\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/api/v1/tarefas/6"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "162"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a2-sYhsYd8bI/hhD5EbfQ/RVSTV4p8\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 20:45:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"nome\": \"Projeto Teste - QA\",\n    \"dataInicio\": \"2023-10-01\",\n    \"dataFim\": \"2024-01-30\",\n    \"status\": \"Em andamento\",\n    \"responsavel\": \"Maria Souza\",\n    \"id\": 6\n}"
+						}
+					]
+				},
+				{
+					"name": "Deletar Tarefa",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/tarefas/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tarefas",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						},
+						"description": "\nEste endpoint é usado para excluir uma tarefa específica com base no seu ID.\n\n### Requisição\n\n- Método: DELETE\n- URL: `{{BASE_URL}}/api/v1/tarefas/:id`\n\n### Parâmetros de URL\n\n- `id` (obrigatório): O ID da tarefa a ser excluída.\n\n### Resposta\n\nExemplos de respostas para esta requisição são:\n\n- Código de status 200:\n  ```\n  {}\n  ```\n\n### Erros\n\n- Código de status 404: Caso a tarefa com o ID especificado não seja encontrada.\n\n"
+					},
+					"response": [
+						{
+							"name": "Deletar Tarefa",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:3000/api/v1/tarefas/6"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-vyGp6PvFo4RvsFtPoIWeCReyIC8\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 20:45:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Listar Usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_URL}}/api/v1/usuarios",
+						"description": "\nEste endpoint realiza uma solicitação HTTP GET para {{BASE_URL}}/api/v1/usuarios e retorna uma lista de usuários.\n\n### Parâmetros da solicitação\nNenhum parâmetro adicional é necessário para esta solicitação.\n\n### Exemplo de resposta\nA resposta para esta solicitação será uma lista de objetos JSON, onde cada objeto representa um usuário. Cada objeto terá as seguintes propriedades:\n\n- `id` (number): O ID do usuário.\n- `nome` (string): O nome do usuário.\n- `cargo` (string): O cargo do usuário.\n- `email` (string): O email do usuário.\n- `senha` (string): A senha do usuário.\n- `admin` (boolean): Indica se o usuário é um administrador ou não.\n\nAqui está um exemplo de resposta para esta solicitação:\n```\n[{\"id\":0,\"nome\":\"\",\"cargo\":\"\",\"email\":\"\",\"senha\":\"\",\"admin\":true}]\n```\n"
+					},
+					"response": [
+						{
+							"name": "Listar Usuarios",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/api/v1/usuarios"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "471"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d7-Q1olzVTtQmP8SzstSkAH1Ss1xIE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 20:47:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"nome\": \"João Silva\",\n        \"cargo\": \"Analista\",\n        \"email\": \"joao.silva@example.com\",\n        \"senha\": \"123\",\n        \"admin\": true\n    },\n    {\n        \"id\": 2,\n        \"nome\": \"Maria Souza\",\n        \"cargo\": \"Desenvolvedora\",\n        \"email\": \"maria.souza@example.com\",\n        \"senha\": \"123\",\n        \"admin\": false\n    },\n    {\n        \"id\": 3,\n        \"nome\": \"Pedro Santos\",\n        \"cargo\": \"Programador\",\n        \"email\": \"pedro.santos@example.com\",\n        \"senha\": \"123 \",\n        \"admin\": false\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Usuario por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/usuarios/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"usuarios",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "\nEsta é uma solicitação HTTP GET para buscar informações de um usuário específico com base no seu ID.\n\n### Requisição\n\n- URL: `{{BASE_URL}}/api/v1/usuarios/:id`\n- Método: GET\n\n### Parâmetros de URL\n\n- `id` (obrigatório): O ID do usuário que deseja buscar. Substitua `:id` na URL pelo valor correspondente.\n\n### Resposta\n\nExemplos de respostas para esta solicitação são:\n\n```json\n{\n  \"id\": 0,\n  \"nome\": \"\",\n  \"cargo\": \"\",\n  \"email\": \"\",\n  \"senha\": \"\",\n  \"admin\": true\n}\n```\n\nA resposta contém os seguintes campos:\n\n- `id`: O ID do usuário.\n- `nome`: O nome do usuário.\n- `cargo`: O cargo do usuário.\n- `email`: O email do usuário.\n- `senha`: A senha do usuário.\n- `admin`: Um valor booleano que indica se o usuário é um administrador ou não.\n\n"
+					},
+					"response": [
+						{
+							"name": "Usuario por Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/api/v1/usuarios/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "133"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"85-fN8mEcFkxWRd7mzz7KiDcDdUQXs\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 20:46:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"nome\": \"João Silva\",\n    \"cargo\": \"Analista\",\n    \"email\": \"joao.silva@example.com\",\n    \"senha\": \"123\",\n    \"admin\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Usuario Filtro Paginação e Ordenação",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/usuarios?admin=true&_page=1&_limit=20&_sort=nome&_order=asc",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"usuarios"
+							],
+							"query": [
+								{
+									"key": "admin",
+									"value": "true"
+								},
+								{
+									"key": "_page",
+									"value": "1"
+								},
+								{
+									"key": "_limit",
+									"value": "20"
+								},
+								{
+									"key": "_sort",
+									"value": "nome"
+								},
+								{
+									"key": "_order",
+									"value": "asc"
+								}
+							]
+						},
+						"description": "\nEste endpoint realiza uma solicitação HTTP GET para obter uma lista de usuários. A solicitação é feita para o seguinte URL: `{{BASE_URL}}/api/v1/usuarios?admin=true&_page=1&_limit=20&_sort=nome&_order=asc`.\n\nA resposta desta solicitação será uma lista de objetos JSON, onde cada objeto representa um usuário. Cada objeto terá as seguintes propriedades:\n\n- `id` (number): O ID do usuário.\n- `nome` (string): O nome do usuário.\n- `cargo` (string): O cargo do usuário.\n- `email` (string): O endereço de e-mail do usuário.\n- `senha` (string): A senha do usuário.\n- `admin` (boolean): Indica se o usuário é um administrador.\n\nExemplo de resposta:\n\n```json\n[\n  {\n    \"id\": 0,\n    \"nome\": \"\",\n    \"cargo\": \"\",\n    \"email\": \"\",\n    \"senha\": \"\",\n    \"admin\": true\n  }\n]\n```\n\nEsta solicitação permite a filtragem dos usuários com base em sua propriedade `admin`. Ao definir o parâmetro `admin` como `true`, apenas os usuários que são administradores serão retornados na resposta.\n\nAlém disso, a solicitação também suporta paginação, classificação e limitação do número de resultados retornados. Os parâmetros `_page`, `_limit`, `_sort` e `_order` são usados para controlar essas opções. \n\n- `_page` (number): O número da página desejada.\n- `_limit` (number): O número máximo de resultados a serem retornados por página.\n- `_sort` (string): A propriedade pela qual os resultados devem ser ordenados.\n- `_order` (string): A ordem de classificação dos resultados, que pode ser \"asc\" (ascendente) ou \"desc\" (descendente).\n\nPor exemplo, na solicitação fornecida, os resultados serão filtrados para retornar apenas os usuários que são administradores (`admin=true`), a primeira página de resultados (`_page=1`), com no máximo 20 resultados por página (`_limit=20`), ordenados pelo nome (`_sort=nome`) em ordem ascendente (`_order=asc`).\n\nAdicionei a documentação em português como solicitado pelo usuário.\n"
+					},
+					"response": [
+						{
+							"name": "Usuario Filtro Paginação e Ordenação",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/usuarios?admin=true&_page=1&_limit=20&_sort=nome&_order=asc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"usuarios"
+									],
+									"query": [
+										{
+											"key": "admin",
+											"value": "true"
+										},
+										{
+											"key": "_page",
+											"value": "1"
+										},
+										{
+											"key": "_limit",
+											"value": "20"
+										},
+										{
+											"key": "_sort",
+											"value": "nome"
+										},
+										{
+											"key": "_order",
+											"value": "asc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "X-Total-Count",
+									"value": "1"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "X-Total-Count, Link"
+								},
+								{
+									"key": "Link",
+									"value": ""
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "153"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"99-jyWleC0UZk/1ecGnEsU5N9lNXFw\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 20:48:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"nome\": \"João Silva\",\n        \"cargo\": \"Analista\",\n        \"email\": \"joao.silva@example.com\",\n        \"senha\": \"123\",\n        \"admin\": true\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Criar Usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"André Silva\",\r\n    \"cargo\": \"Analista\",\r\n    \"email\": \"andre.silva@example.com\",\r\n    \"senha\": \"123\",\r\n    \"admin\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/api/v1/usuarios",
+						"description": "\nEste endpoint é usado para criar um novo usuário no sistema.\n\n### Requisição\n\n- Método: POST\n- URL: {{BASE_URL}}/api/v1/usuarios\n\n#### Parâmetros de Requisição\n\nOs seguintes parâmetros devem ser incluídos no corpo da requisição:\n\n- `nome` (string, obrigatório): O nome do usuário.\n- `cargo` (string, obrigatório): O cargo do usuário.\n- `email` (string, obrigatório): O email do usuário.\n- `senha` (string, obrigatório): A senha do usuário.\n- `admin` (booleano, opcional): Indica se o usuário é um administrador. O valor padrão é `false`.\n\nExemplo de corpo de requisição:\n\n```json\n{\n  \"nome\": \"John Doe\",\n  \"cargo\": \"Desenvolvedor\",\n  \"email\": \"johndoe@example.com\",\n  \"senha\": \"password123\",\n  \"admin\": true\n}\n```\n\n### Resposta\n\nExemplos de respostas para esta requisição:\n\n- Sucesso (Código 200):\n\n```json\n{\n  \"nome\": \"\",\n  \"cargo\": \"\",\n  \"email\": \"\",\n  \"senha\": \"\",\n  \"admin\": true,\n  \"id\": 0\n}\n```\n\n- Erro de validação (Código 400):\n\n```json\n{\n  \"mensagem\": \"Erro de validação: o campo 'nome' é obrigatório.\"\n}\n```\n\n- Erro interno do servidor (Código 500):\n\n```json\n{\n  \"mensagem\": \"Ocorreu um erro interno do servidor.\"\n}\n```\n\n"
+					},
+					"response": [
+						{
+							"name": "Criar Usuario",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"André Silva\",\r\n    \"cargo\": \"Analista\",\r\n    \"email\": \"andre.silva@example.com\",\r\n    \"senha\": \"123\",\r\n    \"admin\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/api/v1/usuarios"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, X-HTTP-Method-Override, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Location"
+								},
+								{
+									"key": "Location",
+									"value": "http://localhost:3000/usuarios/4"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "135"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"87-vwIAF67nJPmhPPywTJW5EJuZaUo\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 20:48:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"nome\": \"André Silva\",\n    \"cargo\": \"Analista\",\n    \"email\": \"andre.silva@example.com\",\n    \"senha\": \"123\",\n    \"admin\": true,\n    \"id\": 4\n}"
+						}
+					]
+				},
+				{
+					"name": "Atualizar Usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"André Silva\",\r\n    \"cargo\": \"Analista\",\r\n    \"email\": \"andre.silva@example.com\",\r\n    \"senha\": \"123\",\r\n    \"admin\": false,\r\n    \"id\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/usuarios/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"usuarios",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						},
+						"description": "\nEste endpoint é usado para atualizar as informações de um usuário existente com base no seu ID.\n\n### Requisição\n\n`PUT /api/v1/usuarios/:id`\n\nParâmetros de URL:\n- `id` (obrigatório): O ID do usuário a ser atualizado.\n\nCorpo da requisição (JSON):\n- `nome` (opcional): O nome do usuário.\n- `cargo` (opcional): O cargo do usuário.\n- `email` (opcional): O email do usuário.\n- `senha` (opcional): A senha do usuário.\n- `admin` (opcional): Indica se o usuário é um administrador.\n\n### Resposta\n\nExemplos de respostas:\n\n1. Sucesso - 200 OK:\n   ```json\n   {\n     \"nome\": \"\",\n     \"cargo\": \"\",\n     \"email\": \"\",\n     \"senha\": \"\",\n     \"admin\": true,\n     \"id\": 0\n   }\n   ```\n\n   O corpo da resposta contém as informações atualizadas do usuário.\n\n2. Erro - 404 Not Found:\n   ```json\n   {\n     \"mensagem\": \"Usuário não encontrado\"\n   }\n   ```\n\n   Essa resposta indica que o usuário com o ID fornecido não foi encontrado.\n\n### Exemplo de uso\n\n```bash\ncurl -X PUT \"{{BASE_URL}}/api/v1/usuarios/123\" \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"nome\": \"João Silva\",\n  \"cargo\": \"Desenvolvedor\",\n  \"email\": \"joao.silva@example.com\",\n  \"senha\": \"senha123\",\n  \"admin\": false\n}'\n```\n\n```javascript\nfetch(\"{{BASE_URL}}/api/v1/usuarios/123\", {\n  method: \"PUT\",\n  headers: {\n    \"Content-Type\": \"application/json\"\n  },\n  body: JSON.stringify({\n    nome: \"João Silva\",\n    cargo: \"Desenvolvedor\",\n    email: \"joao.silva@example.com\",\n    senha: \"senha123\",\n    admin: false\n  })\n})\n  .then(response => response.json())\n  .then(data => console.log(data))\n  .catch(error => console.error(error));\n```\n\n"
+					},
+					"response": [
+						{
+							"name": "Atualizar Usuario",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"André Silva\",\r\n    \"cargo\": \"Analista\",\r\n    \"email\": \"andre.silva@example.com\",\r\n    \"senha\": \"123\",\r\n    \"admin\": false,\r\n    \"id\": 4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/api/v1/usuarios/4"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "136"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"88-HXwNGhcNrKzfVNWLuADFknn9QEg\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 20:49:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"nome\": \"André Silva\",\n    \"cargo\": \"Analista\",\n    \"email\": \"andre.silva@example.com\",\n    \"senha\": \"123\",\n    \"admin\": false,\n    \"id\": 4\n}"
+						}
+					]
+				},
+				{
+					"name": "Deletar Usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/usuarios/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"usuarios",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						},
+						"description": "\nEste endpoint é usado para excluir um usuário específico com base no seu ID.\n\n## Excluir usuário\n\nEste endpoint permite excluir um usuário específico com base no seu ID.\n\n### Requisição\n\n- Método: DELETE\n- URL: `{{BASE_URL}}/api/v1/usuarios/:id`\n\n#### Parâmetros de Path\n\n- `id` (obrigatório): O ID do usuário a ser excluído.\n\n### Resposta\n\nExemplo de resposta de sucesso (código 200):\n\n```\n{}\n```\n\nExemplo de resposta de erro (código 404):\n\n```\n{\n  \"error\": \"Usuário não encontrado\"\n}\n```\n\n"
+					},
+					"response": [
+						{
+							"name": "Deletar Usuario",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:3000/api/v1/usuarios/4"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-vyGp6PvFo4RvsFtPoIWeCReyIC8\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 15 Nov 2023 20:49:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "{{TOKEN}}"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "TOKEN",
+			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiYWRtaW4iOmZhbHNlfQ.OwtyMXXe2VeZjiPYAWtBq3x3jM3lIWgcJeonyGC7g7E"
+		},
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}

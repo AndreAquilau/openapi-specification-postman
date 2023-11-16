@@ -1,0 +1,133 @@
+{
+  "projetos": [
+    {
+      "id": 1,
+      "nome": "Projeto Migração",
+      "dataInicio": "2023-11-01",
+      "dataFim": "2024-02-01",
+      "status": "Em andamento",
+      "responsavel": "João Silva"
+    },
+    {
+      "id": 2,
+      "nome": "Projeto Refatoração",
+      "dataInicio": "2023-10-01",
+      "dataFim": "2024-01-30",
+      "status": "Pendente",
+      "responsavel": "Maria Souza"
+    },
+    {
+      "descricao": "Realizar pesquisa de mercado",
+      "projeto_id": 2,
+      "status": "Concluída",
+      "responsavel": "Maria Souza",
+      "id": 4
+    },
+    {
+      "nome": "Projeto Services",
+      "dataInicio": "2023-10-01",
+      "dataFim": "2024-01-30",
+      "status": "Pendente",
+      "responsavel": "Maria Souza",
+      "id": 6
+    },
+    {
+      "nome": "Projeto Services",
+      "dataInicio": "2023-10-01",
+      "dataFim": "2024-01-30",
+      "status": "Pendente",
+      "responsavel": "Maria Souza",
+      "id": 7
+    },
+    {
+      "nome": "Projeto Services",
+      "dataInicio": "2023-10-01",
+      "dataFim": "2024-01-30",
+      "status": "Pendente",
+      "responsavel": "Maria Souza",
+      "id": 8
+    },
+    {
+      "nome": "Projeto Services",
+      "dataInicio": "2023-10-01",
+      "dataFim": "2024-01-30",
+      "status": "Pendente",
+      "responsavel": "Maria Souza",
+      "id": 9
+    },
+    {
+      "nome": "Projeto Services",
+      "dataInicio": "2023-10-01",
+      "dataFim": "2024-01-30",
+      "status": "Pendente",
+      "responsavel": "Maria Souza",
+      "id": 10
+    }
+  ],
+  "tarefas": [
+    {
+      "id": 1,
+      "descricao": "Realizar análise de impacto",
+      "projeto_id": 1,
+      "status": "Concluída",
+      "responsavel": "João Silva"
+    },
+    {
+      "id": 2,
+      "descricao": "Desenvolver novo componente",
+      "projeto_id": 1,
+      "status": "Em andamento",
+      "responsavel": "Pedro Santos"
+    },
+    {
+      "id": 3,
+      "descricao": "Testar funcionalidades",
+      "projeto_id": 1,
+      "status": "Pendente",
+      "responsavel": ""
+    },
+    {
+      "id": 4,
+      "descricao": "Realizar pesquisa de mercado",
+      "projeto_id": 2,
+      "status": "Em andamento",
+      "responsavel": "Maria Souza"
+    },
+    {
+      "id": 5,
+      "descricao": "Documentar resultados",
+      "projeto_id": 2,
+      "status": "Pendente",
+      "responsavel": ""
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "João Silva",
+      "cargo": "Analista",
+      "email": "joao.silva@example.com",
+      "senha": "123",
+      "admin": true
+    },
+    {
+      "id": 2,
+      "nome": "Maria Souza",
+      "cargo": "Desenvolvedora",
+      "email": "maria.souza@example.com",
+      "senha": "123",
+      "admin": false
+    },
+    {
+      "id": 3,
+      "nome": "Pedro Santos",
+      "cargo": "Programador",
+      "email": "pedro.santos@example.com",
+      "senha": "123 ",
+      "admin": false
+    }
+  ],
+  "login": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiYWRtaW4iOmZhbHNlfQ.OwtyMXXe2VeZjiPYAWtBq3x3jM3lIWgcJeonyGC7g7E"
+  }
+}
