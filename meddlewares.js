@@ -27,9 +27,12 @@ module.exports = (req, res, next) => {
     console.log(token);
     console.log(login.token);
 
+    // Descomente esse código para gerar o mock de autorização
+    /*
     res.status(403).jsonp({
       error: "Usuário sem permissão admin!",
     });
+    */
 
     if (token === "Bearer ".concat(login.token)) {
       next(); // continue to JSON Server router
