@@ -29,14 +29,6 @@
       "dataFim": "2024-01-30",
       "status": "Pendente",
       "responsavel": "Maria Souza",
-      "id": 6
-    },
-    {
-      "nome": "Projeto Services",
-      "dataInicio": "2023-10-01",
-      "dataFim": "2024-01-30",
-      "status": "Pendente",
-      "responsavel": "Maria Souza",
       "id": 7
     },
     {
@@ -87,13 +79,6 @@
       "responsavel": ""
     },
     {
-      "id": 4,
-      "descricao": "Realizar pesquisa de mercado",
-      "projeto_id": 2,
-      "status": "Em andamento",
-      "responsavel": "Maria Souza"
-    },
-    {
       "id": 5,
       "descricao": "Documentar resultados",
       "projeto_id": 2,
@@ -119,12 +104,12 @@
       "admin": false
     },
     {
-      "id": 3,
-      "nome": "Pedro Santos",
-      "cargo": "Programador",
-      "email": "pedro.santos@example.com",
-      "senha": "123 ",
-      "admin": false
+      "nome": "André Silva",
+      "cargo": "Analista",
+      "email": "andre.silva@example.com",
+      "senha": "123",
+      "admin": false,
+      "id": 3
     }
   ],
   "login": {
